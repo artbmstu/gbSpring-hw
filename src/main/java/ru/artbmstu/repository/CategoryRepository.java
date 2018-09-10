@@ -1,21 +1,15 @@
 package ru.artbmstu.repository;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.data.repository.PagingAndSortingRepository;
+import org.springframework.lang.NonNull;
 import org.springframework.stereotype.Repository;
 import ru.artbmstu.entities.CategoryEntity;
 
-import javax.persistence.EntityManager;
+@Repository(CategoryRepository.NAME)
+public interface CategoryRepository extends PagingAndSortingRepository<CategoryEntity, String> {
 
-@Repository
-public class CategoryRepository extends AbstractRepository {
+    @NonNull
+    String NAME = "categoryRepository";
 
-    @Autowired
-    @Qualifier(value = "entityManagerFactory")
-    EntityManager myEntityManager;
-
-    public CategoryEntity findOne(final String id){
-        System.out.println(myEntityManager.getProperties());
-        return myEntityManager.find(CategoryEntity.class, id);
-    }
+    CategoryEntity findByIdcategory(Integer id);
 }
