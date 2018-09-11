@@ -10,6 +10,4 @@ public interface CategoryRepository extends PagingAndSortingRepository<CategoryE
 
     @NonNull
     String NAME = "categoryRepository";
-
-    CategoryEntity findByIdcategory(Integer id);
 }
