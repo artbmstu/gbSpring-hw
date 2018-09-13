@@ -12,5 +12,5 @@ public interface CompanyRepository  extends PagingAndSortingRepository<CompanyEn
     String NAME = "companyRepository";
 
 //    CompanyEntity findByAdsEquals(String ad);
-    CompanyEntity getById(String id);
+    CompanyEntity getByIdcompany(String id);
 }

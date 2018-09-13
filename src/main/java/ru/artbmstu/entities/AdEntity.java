@@ -7,7 +7,7 @@ import java.util.Objects;
 @Table(name = "ad", schema = "advertising", catalog = "")
 public class AdEntity {
     private String idad;
-    private String adName;
+    private String adname;
     private String content;
     private String phone;
 
@@ -22,13 +22,13 @@ public class AdEntity {
     }
 
     @Basic
-    @Column(name = "ad_name")
-    public String getAdName() {
-        return adName;
+    @Column(name = "adname")
+    public String getAdname() {
+        return adname;
     }
 
-    public void setAdName(String adName) {
-        this.adName = adName;
+    public void setAdname(String adname) {
+        this.adname = adname;
     }
 
     @Basic
@@ -51,28 +51,31 @@ public class AdEntity {
         this.phone = phone;
     }
 
-    @ManyToOne
-    @JoinColumn(name = "id_company")
-    public CompanyEntity company;
-
-    @ManyToOne
-    @JoinColumn(name = "id_category")
-    public CategoryEntity category;
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         AdEntity adEntity = (AdEntity) o;
         return Objects.equals(idad, adEntity.idad) &&
-                Objects.equals(adName, adEntity.adName) &&
+                Objects.equals(adname, adEntity.adname) &&
                 Objects.equals(content, adEntity.content) &&
                 Objects.equals(phone, adEntity.phone);
     }
 
     @Override
     public int hashCode() {
+        return Objects.hash(idad, adname, content, phone);
+    }
 
-        return Objects.hash(idad, adName, content, phone);
+    private CategoryEntity categoryEntity;
+
+    @ManyToOne
+    @JoinColumn(name = "idcategory")
+    public CategoryEntity getCategoryEntity() {
+        return categoryEntity;
+    }
+
+    public void setCategoryEntity(CategoryEntity categoryEntity) {
+        this.categoryEntity = categoryEntity;
     }
 }

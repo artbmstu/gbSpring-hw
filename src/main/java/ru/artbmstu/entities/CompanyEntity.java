@@ -1,35 +1,34 @@
 package ru.artbmstu.entities;
 
 import javax.persistence.*;
-import java.util.List;
 import java.util.Objects;
 
 @Entity
 @Table(name = "company", schema = "advertising", catalog = "")
 public class CompanyEntity {
-    private String id;
-    private String companyName;
+    private String idcompany;
+    private String companyname;
     private String description;
     private String address;
 
     @Id
-    @Column(name = "id")
-    public String getId() {
-        return id;
+    @Column(name = "idcompany")
+    public String getIdcompany() {
+        return idcompany;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    public void setIdcompany(String idcompany) {
+        this.idcompany = idcompany;
     }
 
     @Basic
-    @Column(name = "company_name")
-    public String getCompanyName() {
-        return companyName;
+    @Column(name = "companyname")
+    public String getCompanyname() {
+        return companyname;
     }
 
-    public void setCompanyName(String companyName) {
-        this.companyName = companyName;
+    public void setCompanyname(String companyname) {
+        this.companyname = companyname;
     }
 
     @Basic
@@ -52,23 +51,19 @@ public class CompanyEntity {
         this.address = address;
     }
 
-    @OneToMany(mappedBy = "company")
-    private List<AdEntity> ads;
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         CompanyEntity that = (CompanyEntity) o;
-        return Objects.equals(id, that.id) &&
-                Objects.equals(companyName, that.companyName) &&
+        return Objects.equals(idcompany, that.idcompany) &&
+                Objects.equals(companyname, that.companyname) &&
                 Objects.equals(description, that.description) &&
                 Objects.equals(address, that.address);
     }
 
     @Override
     public int hashCode() {
-
-        return Objects.hash(id, companyName, description, address);
+        return Objects.hash(idcompany, companyname, description, address);
     }
 }

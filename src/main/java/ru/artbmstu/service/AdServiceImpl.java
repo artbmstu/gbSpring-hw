@@ -36,6 +36,10 @@ public class AdServiceImpl implements AdService{
         return (List<AdEntity>) adRepository.findAll();
     }
 
+    @Transactional(readOnly = true)
+    public List<AdEntity> findByCategory(CategoryEntity categoryEntity){
+        return adRepository.findByCategoryEntity(categoryEntity);
+    }
 //    @Transactional(readOnly = true)
 //    public List<AdEntity> findAllByCategory(CategoryEntity category){
 //        return adRepository.findAllByCategory(category);

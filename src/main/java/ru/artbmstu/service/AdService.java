@@ -11,5 +11,5 @@ public interface AdService {
     void delete(AdEntity ad);
     AdEntity getById(String id);
     List<AdEntity> findAll();
-//    List<AdEntity> findAllByCategory(CategoryEntity category);
+    List<AdEntity> findByCategory(CategoryEntity categoryEntity);
 }

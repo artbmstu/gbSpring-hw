@@ -19,6 +19,6 @@ public class CompanyServiceImpl implements CompanyService{
 
     @Transactional(readOnly = true)
     public CompanyEntity findById(String id){
-        return companyRepository.getById(id);
+        return companyRepository.getByIdcompany(id);
     }
 }

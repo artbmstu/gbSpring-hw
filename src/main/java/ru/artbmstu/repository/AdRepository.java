@@ -15,5 +15,6 @@ public interface AdRepository extends PagingAndSortingRepository<AdEntity, Strin
     String NAME = "adRepository";
 
     AdEntity getByIdad(String id);
-//    List<AdEntity> findAllByCategory(CategoryEntity category);
+
+    List<AdEntity> findByCategoryEntity(CategoryEntity category);
 }

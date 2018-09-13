@@ -8,7 +8,7 @@ import java.util.Objects;
 @Table(name = "category", schema = "advertising", catalog = "")
 public class CategoryEntity {
     private String idcategory;
-    private String categoryName;
+    private String categoryname;
 
     @Id
     @Column(name = "idcategory")
@@ -21,17 +21,25 @@ public class CategoryEntity {
     }
 
     @Basic
-    @Column(name = "category_name")
-    public String getCategoryName() {
-        return categoryName;
+    @Column(name = "categoryname")
+    public String getCategoryname() {
+        return categoryname;
     }
 
-    public void setCategoryName(String categoryName) {
-        this.categoryName = categoryName;
+    public void setCategoryname(String categoryname) {
+        this.categoryname = categoryname;
     }
 
-    @OneToMany(mappedBy = "category")
     private List<AdEntity> ads;
+
+    @OneToMany(mappedBy = "categoryEntity")
+    public List<AdEntity> getAds() {
+        return ads;
+    }
+
+    public void setAds(List<AdEntity> ads) {
+        this.ads = ads;
+    }
 
     @Override
     public boolean equals(Object o) {
@@ -39,12 +47,11 @@ public class CategoryEntity {
         if (o == null || getClass() != o.getClass()) return false;
         CategoryEntity that = (CategoryEntity) o;
         return Objects.equals(idcategory, that.idcategory) &&
-                Objects.equals(categoryName, that.categoryName);
+                Objects.equals(categoryname, that.categoryname);
     }
 
     @Override
     public int hashCode() {
-
-        return Objects.hash(idcategory, categoryName);
+        return Objects.hash(idcategory, categoryname);
     }
 }
