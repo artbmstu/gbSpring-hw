@@ -3,7 +3,7 @@ package ru.artbmstu.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import ru.artbmstu.entities.CategoryEntity;
+import ru.artbmstu.model.CategoryEntity;
 import ru.artbmstu.repository.CategoryRepository;
 
 import java.util.List;

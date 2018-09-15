@@ -3,10 +3,9 @@ package ru.artbmstu;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import ru.artbmstu.config.AppConfig;
-import ru.artbmstu.entities.CategoryEntity;
+import ru.artbmstu.model.CategoryEntity;
 import ru.artbmstu.service.AdService;
 import ru.artbmstu.service.CategoryService;
-import ru.artbmstu.service.CategoryServiceImpl;
 import ru.artbmstu.service.CompanyService;
 
 public class App {

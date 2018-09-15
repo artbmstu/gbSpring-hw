@@ -1,13 +1,15 @@
 package ru.artbmstu.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import ru.artbmstu.entities.AdEntity;
-import ru.artbmstu.entities.CategoryEntity;
+import ru.artbmstu.model.AdEntity;
+import ru.artbmstu.model.CategoryEntity;
 import ru.artbmstu.repository.AdRepository;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 @Transactional
@@ -27,8 +29,8 @@ public class AdServiceImpl implements AdService{
     }
 
     @Transactional(readOnly = true)
-    public AdEntity getById(String id){
-        return adRepository.getByIdad(id);
+    public Optional<AdEntity> findByIdad(String id){
+        return adRepository.findByIdad(id);
     }
 
     @Transactional(readOnly = true)

@@ -1,6 +1,6 @@
 package ru.artbmstu.service;
 
-import ru.artbmstu.entities.CategoryEntity;
+import ru.artbmstu.model.CategoryEntity;
 
 import java.util.List;
 
