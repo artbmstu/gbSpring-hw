@@ -5,6 +5,7 @@
     <title>Ad View</title>
 </head>
 <body>
-    ${ad}
+test
+    <%--${ad}--%>
 </body>
 </html>

@@ -1,4 +1,4 @@
-package ru.artbmstu.controller;
+package ru.artbmstu.controller.web;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -31,11 +31,11 @@ public class AdController {
         return "redirect:/adlist";
     }
 
-    @GetMapping("/adview/{id}")
+    @GetMapping("adview/{id}")
     public String test(final Model model, @PathVariable("id") final String id){
         final Optional<AdEntity> ad = adService.findByIdad(id);
         ad.ifPresent(a -> model.addAttribute("ad", a));
-        return "redirect:/adview";
+        return "adview";
     }
 
 }

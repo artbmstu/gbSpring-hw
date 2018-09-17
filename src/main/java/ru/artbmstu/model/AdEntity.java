@@ -78,4 +78,16 @@ public class AdEntity {
     public void setCategoryEntity(CategoryEntity categoryEntity) {
         this.categoryEntity = categoryEntity;
     }
+
+    private CompanyEntity companyEntity;
+
+    @ManyToOne
+    @JoinColumn(name = "idcompany")
+    public CompanyEntity getCompanyEntity() {
+        return companyEntity;
+    }
+
+    public void setCompanyEntity(CompanyEntity companyEntity) {
+        this.companyEntity = companyEntity;
+    }
 }
