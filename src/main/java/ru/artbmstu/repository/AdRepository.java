@@ -18,4 +18,6 @@ public interface AdRepository extends PagingAndSortingRepository<AdEntity, Strin
     Optional<AdEntity> findByIdad(String id);
 
     List<AdEntity> findByCategoryEntity(CategoryEntity category);
+
+    void deleteByIdad(String id);
 }

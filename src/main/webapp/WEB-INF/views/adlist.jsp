@@ -1,7 +1,10 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
+  <spring:url value="/resources/bootstrap.min.css" var="bootstrapCss" />
+  <link href="${bootstrapCss}" rel="stylesheet" />
   <title>Title</title>
 </head>
   <body>
@@ -27,7 +30,7 @@
         <td align="center">${ad.content}</td>
         <td align="center">${ad.phone}</td>
         <td align="center" nowrap="nowrap">
-          <a href="adview/${ad.idad}">VIEW</a>
+          <a href="/adview/${ad.idad}">VIEW</a>
         </td>
       </tr>
     </c:forEach>

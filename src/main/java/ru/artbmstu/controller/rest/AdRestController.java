@@ -39,11 +39,11 @@ public class AdRestController {
         return new AdDTO(ad);
     }
 
-    @GetMapping("/adview/{id}")
+    @GetMapping("ff/{id}")
     public String test(final Model model, @PathVariable("id") final String id){
         final Optional<AdEntity> ad = adService.findByIdad(id);
         ad.ifPresent(a -> model.addAttribute("ad", a));
-        return "redirect:/adview";
+        return "smth";
     }
 
 

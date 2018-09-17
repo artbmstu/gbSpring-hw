@@ -9,7 +9,7 @@ import java.util.Optional;
 public interface AdService {
 
     AdEntity save(AdEntity ad);
-    void delete(AdEntity ad);
+    void deleteById(String id);
     Optional<AdEntity> findByIdad(String id);
     List<AdEntity> findAll();
     List<AdEntity> findByCategory(CategoryEntity categoryEntity);

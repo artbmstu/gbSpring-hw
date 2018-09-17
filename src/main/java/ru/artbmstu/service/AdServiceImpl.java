@@ -23,8 +23,8 @@ public class AdServiceImpl implements AdService{
     }
 
     @Transactional
-    public void delete(AdEntity ad){
-        adRepository.delete(ad);
+    public void deleteById(String id){
+        adRepository.deleteByIdad(id);
     }
 
     @Transactional(readOnly = true)
@@ -41,8 +41,4 @@ public class AdServiceImpl implements AdService{
     public List<AdEntity> findByCategory(CategoryEntity categoryEntity){
         return adRepository.findByCategoryEntity(categoryEntity);
     }
-//    @Transactional(readOnly = true)
-//    public List<AdEntity> findAllByCategory(CategoryEntity category){
-//        return adRepository.findAllByCategory(category);
-//    }
 }

@@ -27,7 +27,7 @@ public class AppConfig {
         dataSource.setUrl("jdbc:mysql://localhost:3306/advertising");
         dataSource.setUsername("root");
         dataSource.setDriverClassName("com.mysql.jdbc.Driver");
-        dataSource.setPassword("12345678");
+        dataSource.setPassword("splain3471d");
         return dataSource;
     }
 
