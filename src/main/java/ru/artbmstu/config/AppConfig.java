@@ -5,9 +5,11 @@ import java.util.Properties;
 import javax.persistence.EntityManagerFactory;
 import javax.sql.DataSource;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.PropertySource;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
@@ -18,8 +20,12 @@ import org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter;
 @Configuration
 @ComponentScan("ru.artbmstu")
 @EnableJpaRepositories(basePackages = "ru.artbmstu.repository")
+@PropertySource("classpath:db.property")
 @EnableTransactionManagement
 public class AppConfig {
+
+    @Value("${password}")
+    private String password;
 
     @Bean(name="dataSource")
     public DataSource getDataSource(){
@@ -27,7 +33,7 @@ public class AppConfig {
         dataSource.setUrl("jdbc:mysql://localhost:3306/advertising");
         dataSource.setUsername("root");
         dataSource.setDriverClassName("com.mysql.jdbc.Driver");
-        dataSource.setPassword("12345678");
+        dataSource.setPassword(password);
         return dataSource;
     }
 
