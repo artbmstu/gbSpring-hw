@@ -2,11 +2,12 @@ package ru.artbmstu.model;
 
 import javax.persistence.*;
 import java.util.Objects;
+import java.util.UUID;
 
 @Entity
 @Table(name = "ad", schema = "advertising", catalog = "")
 public class AdEntity {
-    private String idad;
+    private String idad = UUID.randomUUID().toString();
     private String adname;
     private String content;
     private String phone;

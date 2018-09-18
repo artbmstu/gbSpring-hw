@@ -29,7 +29,7 @@ public class AdController {
     @GetMapping("adcreate")
     public String adCreate(){
         final AdEntity ad = new AdEntity();
-        ad.setAdname("Новое объявление");
+        ad.setAdname("New advertise");
         adService.save(ad);
         return "redirect:/adlist";
     }

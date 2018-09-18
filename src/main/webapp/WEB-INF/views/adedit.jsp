@@ -1,16 +1,38 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: art
-  Date: 17.09.2018
-  Time: 22:06
-  To change this template use File | Settings | File Templates.
---%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Title</title>
+    <spring:url value="/resources/bootstrap.min.css" var="bootstrapCss"/>
+    <link href="${bootstrapCss}" rel="stylesheet"/>
+    <style type="text/css">
+        table {
+            margin: 20px 20px 20px;
+        }
+    </style>
+    <title>Advertise edit</title>
 </head>
 <body>
-adedit
+<form:form method="post" action="/adsave" modelAttribute="ad">
+    <p>
+    <div>ID</div>
+    <form:input path="idad" readonly="true"/>
+    </p>
+    <p>
+    <div>NAME</div>
+    <form:input path="adname"/>
+    </p>
+    <p>
+    <div>CONTENT</div>
+    <form:input path="content"/>
+    </p>
+    <p>
+    <div>PHONE</div>
+    <form:input path="phone"/>
+    </p>
+    <p>
+        <button type="submit">SAVE</button>
+    </p>
+</form:form>
 </body>
 </html>

@@ -21,7 +21,7 @@ public class AdRestController {
     private AdService adService;
 
     @GetMapping(value = "adlist", produces = MediaType.APPLICATION_JSON_VALUE)
-    public List<AdDTO> getAdList(){
+    public List<AdDTO> getAdList() {
         System.out.println("adList processing");
         final Iterable<AdEntity> ads = adService.findAll();
         ads.forEach(val -> System.out.println(val.getAdname()));
@@ -31,20 +31,9 @@ public class AdRestController {
                 .collect(Collectors.toList());
     }
 
-    @GetMapping(value = "adcreate", produces = "application/json")
-    public AdDTO adCreate(){
-        final AdEntity ad = new AdEntity();
-        ad.setAdname("Новое объявление");
+    @PostMapping(value = "adcreate", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+    public AdDTO adCreate(AdEntity ad) {
         adService.save(ad);
         return new AdDTO(ad);
     }
-
-    @GetMapping("ff/{id}")
-    public String test(final Model model, @PathVariable("id") final String id){
-        final Optional<AdEntity> ad = adService.findByIdad(id);
-        ad.ifPresent(a -> model.addAttribute("ad", a));
-        return "smth";
-    }
-
-
 }
