@@ -19,44 +19,44 @@ public class AdController {
     @Autowired
     private AdService adService;
 
-    @GetMapping("adlist")
+    @GetMapping("ad-list")
     public String adList(final Model model){
         final Iterable<AdEntity> ads = adService.findAll();
         model.addAttribute("ads", ads);
-        return "adlist";
+        return "ad-list";
     }
 
-    @GetMapping("adcreate")
+    @GetMapping("ad-create")
     public String adCreate(){
         final AdEntity ad = new AdEntity();
         ad.setAdname("New advertise");
         adService.save(ad);
-        return "redirect:/adlist";
+        return "redirect:/ad-list";
     }
 
-    @GetMapping(value = "adedit/{id}")
+    @GetMapping(value = "ad-edit/{id}")
     public String adEdit(final Model model, @PathVariable("id") final String id){
         final Optional<AdEntity> ad = adService.findByIdad(id);
         ad.ifPresent(a -> model.addAttribute("ad", a));
-        return "adedit";
+        return "ad-edit";
     }
 
-    @PostMapping("adsave")
+    @PostMapping("ad-save")
     public String adSave(@ModelAttribute("ad") final AdEntity ad, final BindingResult result){
         if (!result.hasErrors()) adService.save(ad);
-        return "redirect:/adlist";
+        return "redirect:/ad-list";
     }
 
-    @GetMapping(value = "adview/{id}")
+    @GetMapping(value = "ad-view/{id}")
     public String adView(final Model model, @PathVariable("id") final String id){
         final Optional<AdEntity> ad = adService.findByIdad(id);
         ad.ifPresent(a -> model.addAttribute("ad", a));
-        return "adview";
+        return "ad-view";
     }
 
-    @GetMapping("addelete/{id}")
+    @GetMapping("ad-delete/{id}")
     public String adDelete(@PathVariable("id") final String id){
         adService.deleteById(id);
-        return "redirect:/adlist";
+        return "redirect:/ad-list";
     }
 }

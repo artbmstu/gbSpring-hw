@@ -20,7 +20,7 @@ import org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter;
 @Configuration
 @ComponentScan("ru.artbmstu")
 @EnableJpaRepositories(basePackages = "ru.artbmstu.repository")
-@PropertySource("classpath:db.property")
+@PropertySource("classpath:db.properties")
 @EnableTransactionManagement
 public class AppConfig {
 

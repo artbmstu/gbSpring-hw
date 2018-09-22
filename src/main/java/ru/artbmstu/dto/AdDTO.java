@@ -6,10 +6,7 @@ import ru.artbmstu.model.AdEntity;
 import ru.artbmstu.model.CategoryEntity;
 import ru.artbmstu.model.CompanyEntity;
 
-import javax.xml.bind.annotation.XmlRootElement;
-
 @Data
-@XmlRootElement
 @NoArgsConstructor
 public final class AdDTO {
 

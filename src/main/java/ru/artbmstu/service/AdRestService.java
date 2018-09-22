@@ -2,16 +2,19 @@ package ru.artbmstu.service;
 
 import ru.artbmstu.dto.AdDTO;
 import ru.artbmstu.model.AdEntity;
-import ru.artbmstu.model.CategoryEntity;
 
 import java.util.List;
 import java.util.Optional;
 
-public interface AdService {
+public interface AdRestService {
 
-    AdEntity save(AdEntity ad);
-    void deleteById(String id);
-    Optional<AdEntity> findByIdad(String id);
+    AdDTO save(AdDTO ad);
+
     List<AdEntity> findAll();
-    List<AdEntity> findByCategory(CategoryEntity categoryEntity);
+
+    void deleteById(String id);
+
+    Optional<AdEntity> findByIdad(String id);
+
+    void delete(AdDTO ad);
 }
